@@ -1,22 +1,18 @@
-// domes2hergasia.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
-#include <stdlib.h> //συμπεριλαμβάνουμε την stdlib.h για να χρησιμοποιήσουμε τις συναρτήσεις malloc και free στην υλοποίηση του δένδρου
+#include <stdlib.h> //Γ³ΓµΓ¬Γ°Γ¥Γ±Γ©Γ«Γ΅Γ¬ΓΆΓΓ­Γ―ΓµΓ¬Γ¥ Γ΄Γ§Γ­ stdlib.h Γ£Γ©Γ΅ Γ­Γ΅ Γ·Γ±Γ§Γ³Γ©Γ¬Γ―Γ°Γ―Γ©ΓΓ³Γ―ΓµΓ¬Γ¥ Γ΄Γ©Γ² Γ³ΓµΓ­Γ΅Γ±Γ΄ΓΓ³Γ¥Γ©Γ² malloc ΓªΓ΅Γ© free Γ³Γ΄Γ§Γ­ ΓµΓ«Γ―Γ°Γ―ΓΓ§Γ³Γ§ Γ΄Γ―Γµ Γ¤ΓΓ­Γ¤Γ±Γ―Γµ
 #include <iostream>
 #include <string>
 using namespace std;
-//ορίζουμε τις search1 και delete1 χωρίς να γράψουμε την υλοποίηση τους, 
-//διότι στην συνέχεια καλούνται αναδρομικά μεταξύ τους
+//Γ―Γ±ΓΓ¦Γ―ΓµΓ¬Γ¥ Γ΄Γ©Γ² search1 ΓªΓ΅Γ© delete1 Γ·ΓΉΓ±ΓΓ² Γ­Γ΅ Γ£Γ±ΓΓΈΓ―ΓµΓ¬Γ¥ Γ΄Γ§Γ­ ΓµΓ«Γ―Γ°Γ―ΓΓ§Γ³Γ§ Γ΄Γ―ΓµΓ², 
+//Γ¤Γ©ΓΌΓ΄Γ© Γ³Γ΄Γ§Γ­ Γ³ΓµΓ­ΓΓ·Γ¥Γ©Γ΅ ΓªΓ΅Γ«Γ―Γ½Γ­Γ΄Γ΅Γ© Γ΅Γ­Γ΅Γ¤Γ±Γ―Γ¬Γ©ΓªΓ Γ¬Γ¥Γ΄Γ΅Γ®Γ½ Γ΄Γ―ΓµΓ²
 void search1(struct treenode *t, int data);
 void delete1(struct treenode *t);
-struct treenode //ορισμός κονστράκτορα treenode
+struct treenode //Γ―Γ±Γ©Γ³Γ¬ΓΌΓ² ΓªΓ―Γ­Γ³Γ΄Γ±ΓΓªΓ΄Γ―Γ±Γ΅ treenode
 {
-	int value;//θα περιβαλμάνει το κλειδί του κόμβου
-	struct treenode *l; //δείκτης αριστερού κλειδιού
-	struct treenode *r;//δείκτης δεξιού κλειδιού
+	int value;//Γ¨Γ΅ Γ°Γ¥Γ±Γ©ΓΆΓ΅Γ«Γ¬ΓΓ­Γ¥Γ© Γ΄Γ― ΓªΓ«Γ¥Γ©Γ¤Γ Γ΄Γ―Γµ ΓªΓΌΓ¬ΓΆΓ―Γµ
+	struct treenode *l; //Γ¤Γ¥ΓΓªΓ΄Γ§Γ² Γ΅Γ±Γ©Γ³Γ΄Γ¥Γ±Γ―Γ½ ΓªΓ«Γ¥Γ©Γ¤Γ©Γ―Γ½
+	struct treenode *r;//Γ¤Γ¥ΓΓªΓ΄Γ§Γ² Γ¤Γ¥Γ®Γ©Γ―Γ½ ΓªΓ«Γ¥Γ©Γ¤Γ©Γ―Γ½
 }
-//αρχικοποίηση της ρίζας και των προσωρινών δεικτών 
+//Γ΅Γ±Γ·Γ©ΓªΓ―Γ°Γ―ΓΓ§Γ³Γ§ Γ΄Γ§Γ² Γ±ΓΓ¦Γ΅Γ² ΓªΓ΅Γ© Γ΄ΓΉΓ­ Γ°Γ±Γ―Γ³ΓΉΓ±Γ©Γ­ΓΎΓ­ Γ¤Γ¥Γ©ΓªΓ΄ΓΎΓ­ 
 *root = NULL, *temp = NULL, *t2, *t1;
 
 
@@ -212,7 +208,7 @@ int main()
 			while ((arrivals[i] < 1) && (arrivals[i] > 24)) {
 				cout << "\nTime must be between 1 & 24! Please re- enter arrival time: ";
 				cin >> arrivals[i];
-			} //δεν βγαίνω απο την επανάληψη αν δεν βεβαιωθώ ότι έχει δοθεί πραγματική ώρα
+			} //Γ¤Γ¥Γ­ ΓΆΓ£Γ΅ΓΓ­ΓΉ Γ΅Γ°Γ― Γ΄Γ§Γ­ Γ¥Γ°Γ΅Γ­ΓΓ«Γ§ΓΈΓ§ Γ΅Γ­ Γ¤Γ¥Γ­ ΓΆΓ¥ΓΆΓ΅Γ©ΓΉΓ¨ΓΎ ΓΌΓ΄Γ© ΓΓ·Γ¥Γ© Γ¤Γ―Γ¨Γ¥Γ Γ°Γ±Γ΅Γ£Γ¬Γ΅Γ΄Γ©ΓªΓ ΓΎΓ±Γ΅
 			while (arrivals[i] <= departures[i]) {
 				cout << "\nArrival time must be greater than departure time! Please re - enter arrival time of flight: ";
 				cin >> arrivals[i];
@@ -222,7 +218,7 @@ int main()
 			while ((max_arrivals[i] < 1) && (max_arrivals[i] > 24)) {
 				cout << "\nTime must be between 1 & 24! Please re- enter maximum arrival time: ";
 				cin >> max_arrivals[i];
-			} //δεν βγαίνω απο την επανάληψη αν δεν βεβαιωθώ ότι έχει δοθεί πραγματική ώρα
+			} //Γ¤Γ¥Γ­ ΓΆΓ£Γ΅ΓΓ­ΓΉ Γ΅Γ°Γ― Γ΄Γ§Γ­ Γ¥Γ°Γ΅Γ­ΓΓ«Γ§ΓΈΓ§ Γ΅Γ­ Γ¤Γ¥Γ­ ΓΆΓ¥ΓΆΓ΅Γ©ΓΉΓ¨ΓΎ ΓΌΓ΄Γ© ΓΓ·Γ¥Γ© Γ¤Γ―Γ¨Γ¥Γ Γ°Γ±Γ΅Γ£Γ¬Γ΅Γ΄Γ©ΓªΓ ΓΎΓ±Γ΅
 			while (max_arrivals[i] < arrivals[i]) {
 				cout << "\nMaximum arrival time must be equal or greater than estimated arrival time!\nPlease re-enter maximum arrival time: ";
 			}
@@ -278,8 +274,8 @@ int main()
 			}
 			cout << "Ongoing flights between " << hour1 << " and " << hour2 << ": ";
 			for (int j = 0; j < i; j++) {
-				if ((arrivals[j] > hour1) && (arrivals[j] <= hour2)) { //αν η ώρα αφιξης ειναι μεγαλυτερη της εναρξης του χρονικου διατηματος
-																	   //και μικροτερη ή ίση του τελους του χρον. διαστήματος
+				if ((arrivals[j] > hour1) && (arrivals[j] <= hour2)) { //Γ΅Γ­ Γ§ ΓΎΓ±Γ΅ Γ΅Γ¶Γ©Γ®Γ§Γ² Γ¥Γ©Γ­Γ΅Γ© Γ¬Γ¥Γ£Γ΅Γ«ΓµΓ΄Γ¥Γ±Γ§ Γ΄Γ§Γ² Γ¥Γ­Γ΅Γ±Γ®Γ§Γ² Γ΄Γ―Γµ Γ·Γ±Γ―Γ­Γ©ΓªΓ―Γµ Γ¤Γ©Γ΅Γ΄Γ§Γ¬Γ΅Γ΄Γ―Γ²
+																	   //ΓªΓ΅Γ© Γ¬Γ©ΓªΓ±Γ―Γ΄Γ¥Γ±Γ§ Γ ΓΓ³Γ§ Γ΄Γ―Γµ Γ΄Γ¥Γ«Γ―ΓµΓ² Γ΄Γ―Γµ Γ·Γ±Γ―Γ­. Γ¤Γ©Γ΅Γ³Γ΄ΓΓ¬Γ΅Γ΄Γ―Γ²
 					cout << "\n" << codes[j];
 					check = 1;
 				}
